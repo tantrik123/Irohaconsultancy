@@ -7,7 +7,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <img src="/lovable-uploads/9bcc6496-749b-49d3-a6c1-5ec403bba5e0.png" alt="Iroha Education Consultancy" className="h-16 w-auto lg-14" />
+              <img src="/lovable-uploads/9bcc6496-749b-49d3-a6c1-5ec403bba5e0.png" alt="Iroha Education Consultancy" className="h-16 w-auto rounded-16" />
             </div>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
               Your trusted partner for studying abroad in Japan, Australia, and USA. 
