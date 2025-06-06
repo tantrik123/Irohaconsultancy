@@ -235,7 +235,7 @@ const Index = () => {
             delay: 0.2
           }} className="relative order-first lg:order-last">
               <div className="relative">
-                <img alt="Student using laptop for online learning" className="rounded-2xl shadow-2xl w-full" loading="lazy" src="/lovable-uploads/b58a648b-15dc-45b8-ab49-8dc82bf69750.png" />
+                <img alt="Student using laptop for online learning" className="rounded-2xl shadow-2xl w-full" loading="lazy" src="/lovable-uploads/a98dc052-6b6d-4e52-9775-d04f8e9a7cb1.jpg" />
                 <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
