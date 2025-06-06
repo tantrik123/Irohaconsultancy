@@ -213,28 +213,34 @@ const Index = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative bg-gradient-to-br from-red-50 via-white to-red-50 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
+              className="text-center lg:text-left"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+              <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <span className="animate-pulse mr-2">🎓</span>
+                500+ Students Successfully Guided
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 Your Gateway to{" "}
-                <span className="text-blue-600">Japan</span>,{" "}
+                <span className="text-iroha-red">Japan</span>,{" "}
                 <span className="text-green-600">Australia</span> & the{" "}
-                <span className="text-red-600">USA</span>
+                <span className="text-blue-600">USA</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
                 We simplify your study abroad journey — from language prep to visa success.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button asChild size="lg" className="bg-iroha-red hover:bg-iroha-red-dark shadow-lg text-base px-8 py-6">
                   <Link to="/contact">🎓 Get Free Counseling</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="border-iroha-red text-iroha-red hover:bg-red-50 text-base px-8 py-6">
                   <Link to="/services">📖 Explore Services</Link>
                 </Button>
               </div>
@@ -244,18 +250,26 @@ const Index = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="relative order-first lg:order-last"
             >
-              <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
-                alt="Student using laptop for online learning"
-                className="rounded-2xl shadow-2xl"
-                loading="lazy"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg">
-                <div className="flex items-center space-x-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-gray-700">500+ Students Guided</span>
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop"
+                  alt="Student using laptop for online learning"
+                  className="rounded-2xl shadow-2xl w-full"
+                  loading="lazy"
+                />
+                <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium text-gray-700">500+ Students Guided</span>
+                  </div>
+                </div>
+                <div className="absolute -top-4 -right-4 bg-iroha-red text-white p-4 rounded-xl shadow-lg">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">100%</div>
+                    <div className="text-xs">Visa Support</div>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -264,9 +278,9 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-blue-600">
+      <section className="py-16 bg-iroha-red">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -274,9 +288,10 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6"
               >
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-blue-100">{stat.label}</div>
+                <div className="text-2xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-red-100 text-sm md:text-base">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -284,7 +299,7 @@ const Index = () => {
       </section>
 
       {/* About Us Summary */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -293,18 +308,38 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Who We Are</h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              About Our Journey
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Who We Are</h2>
+            <p className="text-lg text-gray-600 leading-relaxed mb-8">
               Founded in 2017 in the heart of Kathmandu, Iroha Consultancy is a Nepal-based consultancy 
               with a mission to simplify overseas education. Our name "Iroha" represents the beginning 
               of knowledge in Japanese culture, symbolizing your first step toward international education.
             </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <div className="text-center p-6 rounded-xl bg-red-50">
+                <div className="text-3xl mb-3">🏢</div>
+                <h3 className="font-semibold text-gray-900 mb-2">Established 2017</h3>
+                <p className="text-gray-600 text-sm">7+ years of trusted service</p>
+              </div>
+              <div className="text-center p-6 rounded-xl bg-red-50">
+                <div className="text-3xl mb-3">📍</div>
+                <h3 className="font-semibold text-gray-900 mb-2">Kathmandu Based</h3>
+                <p className="text-gray-600 text-sm">Serving students across Nepal</p>
+              </div>
+              <div className="text-center p-6 rounded-xl bg-red-50">
+                <div className="text-3xl mb-3">🌏</div>
+                <h3 className="font-semibold text-gray-900 mb-2">Global Reach</h3>
+                <p className="text-gray-600 text-sm">Partners worldwide</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -313,7 +348,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Us?</h2>
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Why Students Choose Us
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Us?</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We combine official registration, experienced guidance, and genuine care 
               to provide the most comprehensive study abroad support in Nepal.
@@ -329,9 +367,9 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 shadow-md group">
                   <CardContent className="p-6 text-center">
-                    <div className="flex justify-center mb-4">
+                    <div className="flex justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       {feature.icon}
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -349,7 +387,7 @@ const Index = () => {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -358,7 +396,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Complete Support Services
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Our Services</h2>
             <p className="text-lg text-gray-600">
               Comprehensive support for your study abroad journey
             </p>
@@ -373,10 +414,10 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 shadow-md group">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
+                      <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                         {service.icon}
                       </div>
                       <div>
@@ -386,8 +427,9 @@ const Index = () => {
                         <p className="text-gray-600 mb-4">
                           {service.description}
                         </p>
-                        <Link to={service.link} className="text-blue-600 hover:text-blue-700 text-sm font-medium">
-                          Learn More →
+                        <Link to={service.link} className="text-iroha-red hover:text-iroha-red-dark text-sm font-medium inline-flex items-center group">
+                          Learn More 
+                          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </div>
                     </div>
@@ -400,7 +442,7 @@ const Index = () => {
       </section>
 
       {/* Popular Destinations */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-red-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -409,7 +451,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Where Can You Go?</h2>
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Study Destinations
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Where Can You Go?</h2>
             <p className="text-lg text-gray-600">
               Explore top study destinations with our expert guidance
             </p>
@@ -424,16 +469,16 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-6xl mb-4">{destination.flag}</div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {destination.country}
+                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 shadow-md group">
+                  <CardContent className="p-8 text-center">
+                    <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">{destination.flag}</div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Study in {destination.country}
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-600 mb-6">
                       {destination.description}
                     </p>
-                    <Button asChild variant="outline" className="w-full">
+                    <Button asChild variant="outline" className="w-full border-iroha-red text-iroha-red hover:bg-red-50">
                       <Link to={destination.link}>Learn More</Link>
                     </Button>
                   </CardContent>
@@ -445,7 +490,7 @@ const Index = () => {
       </section>
 
       {/* Language & Test Preparation */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -454,7 +499,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Language & Test Preparation</h2>
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Language Excellence
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Language & Test Preparation</h2>
             <p className="text-lg text-gray-600">
               Comprehensive preparation for all major language and proficiency tests
             </p>
@@ -469,9 +517,9 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="text-center hover:shadow-lg transition-shadow">
+                <Card className="text-center hover:shadow-lg transition-all duration-300 border group hover:border-iroha-red">
                   <CardContent className="p-4">
-                    <h3 className="font-semibold text-gray-900 mb-1">{test.name}</h3>
+                    <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-iroha-red transition-colors">{test.name}</h3>
                     <p className="text-xs text-gray-600">{test.description}</p>
                   </CardContent>
                 </Card>
@@ -481,9 +529,9 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: "Free Classes", description: "No hidden fees for basic language courses", icon: <BookOpen className="w-6 h-6 text-blue-600" /> },
-              { title: "Flexible Schedules", description: "Classes that fit your timeline", icon: <Calendar className="w-6 h-6 text-green-600" /> },
-              { title: "Certified Trainers", description: "Expert instructors with proven results", icon: <Award className="w-6 h-6 text-purple-600" /> }
+              { title: "Free Classes", description: "No hidden fees for basic language courses", icon: <BookOpen className="w-8 h-8 text-iroha-red" /> },
+              { title: "Flexible Schedules", description: "Classes that fit your timeline", icon: <Calendar className="w-8 h-8 text-green-600" /> },
+              { title: "Certified Trainers", description: "Expert instructors with proven results", icon: <Award className="w-8 h-8 text-purple-600" /> }
             ].map((feature, index) => (
               <motion.div
                 key={index}
@@ -492,7 +540,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card>
+                <Card className="hover:shadow-xl transition-all duration-300 border-0 shadow-md">
                   <CardContent className="p-6 text-center">
                     <div className="flex justify-center mb-4">{feature.icon}</div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
@@ -506,7 +554,7 @@ const Index = () => {
       </section>
 
       {/* How We Work Process */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -515,7 +563,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How We Work</h2>
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Our Process
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">How We Work</h2>
             <p className="text-lg text-gray-600">
               Our proven 4-step process to your study abroad success
             </p>
@@ -531,20 +582,23 @@ const Index = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="relative"
               >
-                <Card className="h-full">
+                <Card className="h-full relative overflow-hidden group hover:shadow-xl transition-all duration-300">
                   <CardContent className="p-6 text-center">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full p-2 border-4 border-gray-100">
-                      {step.icon}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full p-3 border-4 border-red-100 group-hover:border-iroha-red transition-colors">
+                      <div className="group-hover:scale-110 transition-transform duration-300">
+                        {step.icon}
+                      </div>
                     </div>
                     <div className="pt-8">
+                      <div className="text-iroha-red font-bold text-sm mb-2">STEP {index + 1}</div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600">{step.description}</p>
+                      <p className="text-gray-600 text-sm">{step.description}</p>
                     </div>
                   </CardContent>
                 </Card>
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                    <ArrowRight className="w-6 h-6 text-gray-400" />
+                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                    <ArrowRight className="w-6 h-6 text-iroha-red" />
                   </div>
                 )}
               </motion.div>
@@ -554,7 +608,7 @@ const Index = () => {
       </section>
 
       {/* SSW Programs Info */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-16 md:py-20 bg-iroha-red">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -562,14 +616,17 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <div className="inline-flex items-center bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              🇯🇵 Work in Japan
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-6">
               Skilled Worker Programs for Japan
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-red-100 mb-8 max-w-3xl mx-auto">
               Specialized programs for careers in Caregiving, Factory Work, Hospitality, and more. 
               Get direct pathway to work in Japan with our SSW visa support.
             </p>
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+            <Button asChild size="lg" className="bg-white text-iroha-red hover:bg-gray-100 shadow-lg">
               <Link to="/services/ssw-programs">Learn About SSW Programs</Link>
             </Button>
           </motion.div>
@@ -577,7 +634,7 @@ const Index = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -586,7 +643,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Success Stories</h2>
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Student Success Stories
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Success Stories</h2>
             <p className="text-lg text-gray-600">Hear from our students who are now studying abroad</p>
           </motion.div>
 
@@ -599,7 +659,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 shadow-md">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4 mb-4">
                       <img
@@ -613,12 +673,12 @@ const Index = () => {
                         <p className="text-sm text-gray-600">{testimonial.destination}</p>
                       </div>
                     </div>
-                    <div className="flex mb-2">
+                    <div className="flex mb-3">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <Star key={star} className="w-4 h-4 text-yellow-400 fill-current" />
                       ))}
                     </div>
-                    <p className="text-gray-700 italic">"{testimonial.text}"</p>
+                    <p className="text-gray-700 italic leading-relaxed">"{testimonial.text}"</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -628,7 +688,7 @@ const Index = () => {
       </section>
 
       {/* Blog Preview */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -637,7 +697,10 @@ const Index = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Free Resources & Guides</h2>
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Knowledge Hub
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Free Resources & Guides</h2>
             <p className="text-lg text-gray-600">Expert insights and helpful guides for your study abroad journey</p>
           </motion.div>
 
@@ -650,19 +713,23 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 shadow-md overflow-hidden group">
                   <CardContent className="p-0">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-48 object-cover rounded-t-lg"
-                      loading="lazy"
-                    />
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
                     <div className="p-6">
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">{post.title}</h3>
                       <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                      <Link to={`/blog/${post.slug}`} className="text-blue-600 hover:text-blue-700 font-medium">
-                        Read More →
+                      <Link to={`/blog/${post.slug}`} className="text-iroha-red hover:text-iroha-red-dark font-medium inline-flex items-center group">
+                        Read More 
+                        <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
                   </CardContent>
@@ -672,7 +739,7 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-8">
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="border-iroha-red text-iroha-red hover:bg-red-50">
               <Link to="/blog">View All Resources</Link>
             </Button>
           </div>
@@ -680,7 +747,7 @@ const Index = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-green-600">
+      <section className="py-16 md:py-20 bg-gradient-to-r from-green-600 to-green-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -688,14 +755,14 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-6">
               Start your journey with Iroha — 100% visa support, no hidden fees
             </h2>
-            <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-green-100 mb-8 max-w-3xl mx-auto">
               Join thousands of successful students who chose Iroha Consultancy for their study abroad dreams. 
               Get personalized guidance and comprehensive support every step of the way.
             </p>
-            <Button asChild size="lg" className="bg-white text-green-600 hover:bg-gray-100">
+            <Button asChild size="lg" className="bg-white text-green-600 hover:bg-gray-100 shadow-lg">
               <Link to="/contact">Schedule Free Counseling</Link>
             </Button>
           </motion.div>
@@ -703,7 +770,7 @@ const Index = () => {
       </section>
 
       {/* Contact Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -712,19 +779,26 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Visit Our Office in Dillibazar</h2>
+              <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+                Visit Our Office
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Visit Our Office in Dillibazar</h2>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <MapPin className="w-5 h-5 text-blue-600" />
+                  <MapPin className="w-5 h-5 text-iroha-red" />
                   <span className="text-gray-700">Dillibazar, Kathmandu, Nepal</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-green-600" />
                   <span className="text-gray-700">Sun-Fri: 10AM-6PM</span>
                 </div>
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-5 h-5 text-blue-600" />
+                  <span className="text-gray-700">+977-9840175421</span>
+                </div>
               </div>
               <div className="mt-6">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="bg-iroha-red hover:bg-iroha-red-dark">
                   <Link to="/contact">📍 Get Directions</Link>
                 </Button>
               </div>
@@ -736,12 +810,15 @@ const Index = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <img
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop"
-                alt="Modern office building"
-                className="rounded-lg shadow-lg w-full"
-                loading="lazy"
-              />
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop"
+                  alt="Modern office building"
+                  className="rounded-xl shadow-lg w-full"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-iroha-red/20 to-transparent rounded-xl"></div>
+              </div>
             </motion.div>
           </div>
         </div>
