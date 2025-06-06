@@ -256,7 +256,7 @@ const ServiceDetail = () => {
       {/* Navigation */}
       <section className="py-4 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Button asChild variant="ghost" className="mb-0">
+          <Button asChild variant="ghost" className="mb-0 hover:text-iroha-red">
             <Link to="/services" className="flex items-center">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Services
@@ -289,10 +289,10 @@ const ServiceDetail = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full">
+                <Card className="h-full hover:border-iroha-red transition-colors border-2">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-iroha-red mt-1 flex-shrink-0" />
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   </CardContent>
@@ -327,10 +327,10 @@ const ServiceDetail = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card>
+                <Card className="hover:border-iroha-red transition-colors border-2">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
-                      <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">
+                      <div className="w-10 h-10 bg-iroha-red text-white rounded-full flex items-center justify-center font-bold">
                         {index + 1}
                       </div>
                       <span className="text-gray-700">{step}</span>
@@ -358,7 +358,7 @@ const ServiceDetail = () => {
             </h2>
           </motion.div>
 
-          <Card className="max-w-4xl mx-auto">
+          <Card className="max-w-4xl mx-auto border-2 hover:border-iroha-red transition-colors">
             <CardContent className="p-8">
               <ul className="space-y-4">
                 {service.requirements.map((requirement: string, index: number) => (
@@ -370,7 +370,7 @@ const ServiceDetail = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     className="flex items-start space-x-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <CheckCircle className="w-5 h-5 text-iroha-red mt-1 flex-shrink-0" />
                     <span className="text-gray-700">{requirement}</span>
                   </motion.li>
                 ))}
@@ -381,7 +381,7 @@ const ServiceDetail = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 gradient-iroha">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -393,11 +393,11 @@ const ServiceDetail = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
               Contact our expert counselors for a free consultation and personalized guidance 
               for your {service.title.toLowerCase()} journey.
             </p>
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+            <Button asChild size="lg" className="bg-white text-iroha-red hover:bg-gray-100">
               <Link to="/contact">Get Free Consultation</Link>
             </Button>
           </motion.div>

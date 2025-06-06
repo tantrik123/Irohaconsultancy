@@ -16,25 +16,25 @@ import {
 const Contact = () => {
   const contactInfo = [
     {
-      icon: <MapPin className="w-6 h-6 text-blue-600" />,
+      icon: <MapPin className="w-6 h-6 text-iroha-red" />,
       title: "Visit Our Office",
       details: ["Dillibazar, Kathmandu", "Nepal"],
       note: "Easily accessible by public transport"
     },
     {
-      icon: <Phone className="w-6 h-6 text-green-600" />,
+      icon: <Phone className="w-6 h-6 text-iroha-red" />,
       title: "Call Us",
       details: ["+977-9840175421"],
       note: "Available during business hours"
     },
     {
-      icon: <Mail className="w-6 h-6 text-purple-600" />,
+      icon: <Mail className="w-6 h-6 text-iroha-red" />,
       title: "Email Us",
       details: ["info@irohaconsultancy.com"],
       note: "We'll respond within 24 hours"
     },
     {
-      icon: <Clock className="w-6 h-6 text-orange-600" />,
+      icon: <Clock className="w-6 h-6 text-iroha-red" />,
       title: "Business Hours",
       details: ["Sunday - Friday: 10:00 AM - 6:00 PM", "Saturday: Closed"],
       note: "Emergency consultations available"
@@ -70,7 +70,7 @@ const Contact = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
+      <section className="relative gradient-iroha py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -78,10 +78,10 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Get in Touch with Our Experts
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
               Ready to start your study abroad journey? Our experienced counselors are here 
               to provide personalized guidance and answer all your questions about studying 
               in Japan, Australia, or the USA.
@@ -117,7 +117,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="text-center h-full hover:shadow-lg transition-shadow">
+                <Card className="text-center h-full hover:shadow-lg transition-shadow border-2 hover:border-iroha-red">
                   <CardContent className="p-6">
                     <div className="flex justify-center mb-4">
                       {info.icon}
@@ -157,7 +157,7 @@ const Contact = () => {
               <Card>
                 <CardContent className="p-8">
                   <div className="flex items-center space-x-2 mb-6">
-                    <MessageSquare className="w-6 h-6 text-blue-600" />
+                    <MessageSquare className="w-6 h-6 text-iroha-red" />
                     <h3 className="text-2xl font-bold text-gray-900">Send us a Message</h3>
                   </div>
                   
@@ -171,6 +171,7 @@ const Contact = () => {
                           id="firstName" 
                           placeholder="Your first name"
                           required
+                          className="focus:ring-iroha-red focus:border-iroha-red"
                         />
                       </div>
                       <div>
@@ -181,6 +182,7 @@ const Contact = () => {
                           id="lastName" 
                           placeholder="Your last name"
                           required
+                          className="focus:ring-iroha-red focus:border-iroha-red"
                         />
                       </div>
                     </div>
@@ -194,6 +196,7 @@ const Contact = () => {
                         type="email" 
                         placeholder="your.email@example.com"
                         required
+                        className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
                     
@@ -205,6 +208,7 @@ const Contact = () => {
                         id="phone" 
                         type="tel" 
                         placeholder="+977-XXXXXXXXXX"
+                        className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
                     
@@ -214,7 +218,7 @@ const Contact = () => {
                       </label>
                       <select 
                         id="interest" 
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-iroha-red focus:border-iroha-red"
                       >
                         <option value="">Select your interest</option>
                         <option value="japan">Study in Japan</option>
@@ -234,10 +238,11 @@ const Contact = () => {
                         rows={4}
                         placeholder="Tell us about your study abroad goals, preferred course, budget, or any specific questions..."
                         required
+                        className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
                     
-                    <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                    <Button type="submit" className="w-full bg-iroha-red hover:bg-iroha-red-dark">
                       Send Message
                     </Button>
                     
@@ -260,13 +265,18 @@ const Contact = () => {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Find Us</h3>
                   
-                  {/* Map Placeholder */}
-                  <div className="bg-gray-200 rounded-lg h-64 mb-6 flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-                      <p className="text-gray-600">Interactive Map</p>
-                      <p className="text-sm text-gray-500">Dillibazar, Kathmandu</p>
-                    </div>
+                  {/* Google Maps Embed */}
+                  <div className="rounded-lg overflow-hidden mb-6">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3871438164006!2d85.32532267611367!3d27.705330625579244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19007f6d0e51%3A0x33a303545c67d0c9!2sIROHA%20Japanese%20Education%20Consultancy!5e0!3m2!1sen!2snp!4v1749218982043!5m2!1sen!2snp" 
+                      width="100%" 
+                      height="300" 
+                      style={{border:0}} 
+                      allowFullScreen
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Iroha Consultancy Location"
+                    />
                   </div>
                   
                   <div className="space-y-4">
@@ -342,7 +352,7 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card>
+                <Card className="border-2 hover:border-iroha-red transition-colors">
                   <CardContent className="p-6">
                     <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
                     <p className="text-gray-600">{faq.a}</p>

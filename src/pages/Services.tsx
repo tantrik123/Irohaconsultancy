@@ -18,7 +18,7 @@ const Services = () => {
   const services = [
     {
       slug: "study-japan",
-      icon: <GraduationCap className="w-8 h-8 text-red-600" />,
+      icon: <GraduationCap className="w-8 h-8 text-iroha-red" />,
       title: "Study in Japan",
       description: "Complete guidance for studying in Japan including university selection, application support, and cultural preparation.",
       features: ["University & Language School Admission", "Student Visa Processing", "Free Japanese Language Classes", "Cultural Orientation"],
@@ -26,7 +26,7 @@ const Services = () => {
     },
     {
       slug: "study-australia",
-      icon: <Globe className="w-8 h-8 text-green-600" />,
+      icon: <Globe className="w-8 h-8 text-iroha-red" />,
       title: "Study in Australia", 
       description: "Comprehensive support for Australian education including pathway programs and permanent residency guidance.",
       features: ["University Applications", "Student Visa Support", "IELTS Preparation", "Post-Study Work Guidance"],
@@ -34,7 +34,7 @@ const Services = () => {
     },
     {
       slug: "study-usa",
-      icon: <Award className="w-8 h-8 text-blue-600" />,
+      icon: <Award className="w-8 h-8 text-iroha-red" />,
       title: "Study in USA",
       description: "Expert assistance for US education with scholarship guidance and comprehensive application support.",
       features: ["College Applications", "F-1 Visa Processing", "TOEFL/SAT Prep", "Scholarship Assistance"],
@@ -42,7 +42,7 @@ const Services = () => {
     },
     {
       slug: "visa-support",
-      icon: <FileCheck className="w-8 h-8 text-purple-600" />,
+      icon: <FileCheck className="w-8 h-8 text-iroha-red" />,
       title: "Visa Application Support",
       description: "Complete visa processing assistance with document preparation and interview coaching.",
       features: ["Document Preparation", "Interview Coaching", "Application Tracking", "Success Guarantee"],
@@ -50,7 +50,7 @@ const Services = () => {
     },
     {
       slug: "language-classes",
-      icon: <BookOpen className="w-8 h-8 text-orange-600" />,
+      icon: <BookOpen className="w-8 h-8 text-iroha-red" />,
       title: "Language Classes",
       description: "Free Japanese and English language training with certified instructors and test preparation.",
       features: ["Japanese (N5-N1)", "English (Basic-Advanced)", "JLPT Preparation", "IELTS/TOEFL Training"],
@@ -58,7 +58,7 @@ const Services = () => {
     },
     {
       slug: "test-preparation",
-      icon: <Users className="w-8 h-8 text-teal-600" />,
+      icon: <Users className="w-8 h-8 text-iroha-red" />,
       title: "Test Preparation",
       description: "Comprehensive test preparation for all major international language and aptitude tests.",
       features: ["JLPT (N5-N1)", "IELTS/TOEFL", "NAT-Test/JLCT", "JFT-Basic"],
@@ -85,7 +85,7 @@ const Services = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 to-white py-20">
+      <section className="relative gradient-iroha py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -93,10 +93,10 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Comprehensive Study Abroad Services
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
               From initial counseling to post-arrival support, we provide end-to-end assistance 
               for your international education journey. Choose from our specialized services 
               designed to ensure your success.
@@ -132,16 +132,16 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-all duration-300 group relative">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 group relative border-2 hover:border-iroha-red">
                   {service.popular && (
-                    <div className="absolute -top-3 left-6 bg-blue-600 text-white text-sm px-3 py-1 rounded-full font-medium">
+                    <div className="absolute -top-3 left-6 bg-iroha-red text-white text-sm px-3 py-1 rounded-full font-medium">
                       Popular
                     </div>
                   )}
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-3 mb-4">
                       {service.icon}
-                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-iroha-red transition-colors">
                         {service.title}
                       </h3>
                     </div>
@@ -153,13 +153,13 @@ const Services = () => {
                     <ul className="space-y-2 mb-6">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-center text-sm text-gray-700">
-                          <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mr-2"></div>
+                          <div className="w-1.5 h-1.5 bg-iroha-red rounded-full mr-2"></div>
                           {feature}
                         </li>
                       ))}
                     </ul>
                     
-                    <Button asChild className="w-full group">
+                    <Button asChild className="w-full group bg-iroha-red hover:bg-iroha-red-dark">
                       <Link to={`/services/${service.slug}`} className="flex items-center justify-center">
                         Learn More
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -200,10 +200,10 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="text-center hover:shadow-md transition-shadow">
+                <Card className="text-center hover:shadow-md transition-shadow hover:border-iroha-red border-2">
                   <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <div className="w-6 h-6 bg-blue-600 rounded-full"></div>
+                    <div className="w-12 h-12 bg-iroha-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <div className="w-6 h-6 bg-iroha-red rounded-full"></div>
                     </div>
                     <h3 className="font-semibold text-gray-900">{service}</h3>
                   </CardContent>
@@ -247,7 +247,7 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="w-16 h-16 bg-iroha-red text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
@@ -259,7 +259,7 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-20 gradient-iroha">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -271,11 +271,11 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Begin Your Journey?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
               Schedule a free consultation with our experts and take the first step 
               towards your international education goals.
             </p>
-            <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+            <Button asChild size="lg" className="bg-white text-iroha-red hover:bg-gray-100">
               <Link to="/contact">Get Free Consultation</Link>
             </Button>
           </motion.div>
