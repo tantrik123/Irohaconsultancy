@@ -1,20 +1,13 @@
-
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Clock, Mail, Globe } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black text-white">
+  return <footer className="bg-gradient-to-br from-gray-900 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/lovable-uploads/9bcc6496-749b-49d3-a6c1-5ec403bba5e0.png" 
-                alt="Iroha Education Consultancy" 
-                className="h-16 w-auto bg-white p-2 rounded-lg"
-              />
+              <img src="/lovable-uploads/9bcc6496-749b-49d3-a6c1-5ec403bba5e0.png" alt="Iroha Education Consultancy" className="h-16 w-auto" />
             </div>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
               Your trusted partner for studying abroad in Japan, Australia, and USA. 
@@ -91,8 +84,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
