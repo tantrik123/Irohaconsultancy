@@ -1,10 +1,9 @@
-
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Globe, Users, Award, BookOpen, Clock, GraduationCap, FileText, Languages, MapPin, ArrowRight, Star, Target, Calendar, Plane } from "lucide-react";
+import { CheckCircle, Globe, Users, Award, BookOpen, Clock, GraduationCap, FileText, Languages, MapPin, ArrowRight, Star, Target, Calendar, Plane, Phone, Mail } from "lucide-react";
 
 const Index = () => {
   const whyChooseUsFeatures = [
@@ -795,6 +794,10 @@ const Index = () => {
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-blue-600" />
                   <span className="text-gray-700">+977-9840175421</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-5 h-5 text-purple-600" />
+                  <span className="text-gray-700">info@irohaconsultancy.com</span>
                 </div>
               </div>
               <div className="mt-6">
