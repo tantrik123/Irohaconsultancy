@@ -294,7 +294,7 @@ const Index = () => {
             <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
               About Our Journey
             </div>
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Who We Are</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">Who We Are?</h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
               Founded in 2017 in the heart of Kathmandu, Iroha Consultancy is a Nepal-based consultancy 
               with a mission to simplify overseas education. Our name "Iroha" represents the beginning 
