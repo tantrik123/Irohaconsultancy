@@ -1,7 +1,7 @@
-
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { MapPin, Users, Award, Target } from "lucide-react";
 
 const About = () => {
@@ -25,6 +25,30 @@ const About = () => {
       icon: <MapPin className="w-8 h-8 text-orange-600" />,
       title: "Global Reach",
       description: "Connecting Nepal with world-class educational opportunities across three continents."
+    }
+  ];
+
+  const teamMembers = [
+    {
+      name: "Sohail Khan",
+      role: "Founder",
+      description: "The visionary behind Iroha, Sohail brings years of experience in international education consulting. His mission is to provide students with clear, honest guidance and a smooth pathway to studying in Japan. With a deep understanding of Japanese culture and education systems, he ensures Iroha remains a trusted name in Kathmandu.",
+      avatar: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=150&h=150&fit=crop&crop=face",
+      initials: "SK"
+    },
+    {
+      name: "Shafique Khan",
+      role: "Managing Director",
+      description: "Shafique oversees the day-to-day operations, team coordination, and student services. Known for his problem-solving skills and student-first approach, he ensures that every applicant receives personalized attention and that our services meet the highest standards.",
+      avatar: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=150&fit=crop&crop=face",
+      initials: "SHK"
+    },
+    {
+      name: "Laxmi Shrestha",
+      role: "Co-founder",
+      description: "With a strong background in student counseling and administration, Laxmi plays a key role in building student relationships and managing backend processes. Her dedication ensures a smooth experience from application to visa approval, helping students feel confident every step of the way.",
+      avatar: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&crop=face",
+      initials: "LS"
     }
   ];
 
@@ -221,6 +245,63 @@ const About = () => {
                     </h3>
                     <p className="text-gray-600">
                       {value.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Our Team */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center mb-4">
+              <Users className="w-8 h-8 text-blue-600 mr-3" />
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                Meet Our Team
+              </h2>
+            </div>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              At Iroha Education Consultancy, we believe that a strong, passionate team is the foundation of every student's success. Get to know the people who are dedicated to guiding you on your journey to Japan!
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6 text-center">
+                    <div className="flex justify-center mb-4">
+                      <Avatar className="w-20 h-20">
+                        <AvatarImage src={member.avatar} alt={member.name} />
+                        <AvatarFallback className="text-lg font-semibold bg-blue-100 text-blue-600">
+                          {member.initials}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      {member.name}
+                    </h3>
+                    <div className="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">
+                      {member.role}
+                    </div>
+                    <p className="text-gray-600 leading-relaxed">
+                      {member.description}
                     </p>
                   </CardContent>
                 </Card>
