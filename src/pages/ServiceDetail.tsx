@@ -13,7 +13,7 @@ const ServiceDetail = () => {
     "study-japan": {
       title: "Study in Japan",
       description: "Complete guidance for pursuing higher education in Japan with comprehensive support from application to arrival.",
-      hero: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=800&h=400&fit=crop",
+      hero: "/photos/japppan.jpg",
       features: [
         "University and Language School Selection",
         "Application Support and Documentation",
@@ -44,7 +44,7 @@ const ServiceDetail = () => {
     "study-australia": {
       title: "Study in Australia", 
       description: "Expert assistance for Australian education with pathway programs and permanent residency guidance.",
-      hero: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop",
+      hero: "/photos/australia.jpg",
       features: [
         "University Applications and Course Selection",
         "Student Visa Support (Subclass 500)",
@@ -75,8 +75,8 @@ const ServiceDetail = () => {
     "study-usa": {
       title: "Study in USA",
       description: "Comprehensive support for US education including scholarship guidance and complete application assistance.",
-      hero: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&h=400&fit=crop",
-      features: [
+      hero: "/photos/usa.jpg",
+            features: [
         "University and College Applications",
         "F-1 Student Visa Processing", 
         "TOEFL/SAT/GRE Preparation",
@@ -107,7 +107,7 @@ const ServiceDetail = () => {
     "visa-support": {
       title: "Visa Application Support",
       description: "Complete visa processing assistance with expert guidance and high success rates.",
-      hero: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop",
+      hero: "/photos/visa.jpg",
       features: [
         "Complete Document Preparation",
         "Application Form Assistance",
@@ -139,7 +139,7 @@ const ServiceDetail = () => {
     "language-classes": {
       title: "Language Classes",
       description: "Free Japanese and English language training with certified instructors and comprehensive test preparation.",
-      hero: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop",
+      hero: "/photos/jlpt.jpg",
       features: [
         "Japanese Classes (N5 to N1 levels)",
         "English Language Training",
@@ -170,7 +170,7 @@ const ServiceDetail = () => {
     "test-preparation": {
       title: "Test Preparation",
       description: "Comprehensive preparation for all major international language and aptitude tests.",
-      hero: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop",
+      hero: "/photos/test.jpg",
       features: [
         "JLPT (Japanese Language Proficiency Test)",
         "IELTS (International English Language Testing)",
