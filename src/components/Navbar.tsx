@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -47,17 +46,31 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(item => <Link key={item.name} to={item.path} onClick={handleNavClick} className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${isActive(item.path) ? "text-white bg-iroha-red shadow-md" : "text-gray-700 hover:text-iroha-red hover:bg-red-50"}`}>
+            {navItems.map(item => (
+              <Link 
+                key={item.name} 
+                to={item.path} 
+                onClick={handleNavClick} 
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  isActive(item.path) 
+                    ? "text-white bg-iroha-red shadow-md" 
+                    : "text-gray-700 hover:text-iroha-red hover:bg-red-50"
+                }`}
+              >
                 {item.name}
-              </Link>)}
+              </Link>
+            ))}
             <Button asChild className="bg-iroha-red hover:bg-iroha-red-dark shadow-lg">
-              <Link to="/contact" onClick={scrollToTop}>Get Started</Link>
+              <Link to="/contact" onClick={handleNavClick}>Get Started</Link>
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-md text-gray-700 hover:text-iroha-red hover:bg-red-50 transition-colors">
+            <button 
+              onClick={() => setIsOpen(!isOpen)} 
+              className="p-2 rounded-md text-gray-700 hover:text-iroha-red hover:bg-red-50 transition-colors"
+            >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -65,20 +78,28 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <AnimatePresence>
-          {isOpen && <motion.div initial={{
-          opacity: 0,
-          height: 0
-        }} animate={{
-          opacity: 1,
-          height: "auto"
-        }} exit={{
-          opacity: 0,
-          height: 0
-        }} className="md:hidden border-t border-gray-200 bg-white">
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-gray-200 bg-white"
+            >
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {navItems.map(item => <Link key={item.name} to={item.path} onClick={handleNavClick} className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${isActive(item.path) ? "text-white bg-iroha-red" : "text-gray-700 hover:text-iroha-red hover:bg-red-50"}`}>
+                {navItems.map(item => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={handleNavClick}
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                      isActive(item.path)
+                        ? "text-white bg-iroha-red"
+                        : "text-gray-700 hover:text-iroha-red hover:bg-red-50"
+                    }`}
+                  >
                     {item.name}
-                  </Link>)}
+                  </Link>
+                ))}
                 <div className="pt-2">
                   <Button asChild className="w-full bg-iroha-red hover:bg-iroha-red-dark">
                     <Link to="/contact" onClick={handleNavClick}>
@@ -87,7 +108,8 @@ const Navbar = () => {
                   </Button>
                 </div>
               </div>
-            </motion.div>}
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </nav>;

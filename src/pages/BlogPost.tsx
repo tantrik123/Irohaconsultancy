@@ -614,7 +614,7 @@ const BlogPost = () => {
               towards your international education goals.
             </p>
             <Button asChild size="lg" className="bg-white text-iroha-red hover:bg-gray-100">
-              <Link to="/contact">Get Free Consultation</Link>
+              <Link to="/Contact">Get Free Consultation</Link>
             </Button>
           </motion.div>
         </div>

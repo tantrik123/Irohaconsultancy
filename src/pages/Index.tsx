@@ -39,10 +39,10 @@ const Index = () => {
     description: "End-to-end support for visa applications"
   }];
   const services = [{
-    title: "Study Abroad Counseling",
-    description: "Personalized guidance for Japan, Australia, and USA",
+    title: "Study In USA",
+    description: "Personalized guidance for USA",
     icon: <GraduationCap className="w-8 h-8 text-blue-600" />,
-    link: "/services/counseling"
+    link: "/services/study-usa"
   }, {
     title: "Visa Support",
     description: "Complete visa application and interview preparation",
@@ -57,17 +57,17 @@ const Index = () => {
     title: "Test Preparation",
     description: "JLPT, IELTS, TOEFL, and other exam prep",
     icon: <BookOpen className="w-8 h-8 text-orange-600" />,
-    link: "/services/test-prep"
+    link: "/services/test-preparation"
   }, {
-    title: "Document Translation",
-    description: "Free document translation for Japan-bound students",
-    icon: <FileText className="w-8 h-8 text-teal-600" />,
-    link: "/services/translation"
+    title: "Study in Australia",
+    description: "Comprehensive support for Australian education ",
+    icon: <GraduationCap className="w-8 h-8 text-teal-600" />,
+    link: "/services/study-australia"
   }, {
-    title: "SSW Programs",
-    description: "Specified Skilled Worker visa programs for Japan",
+    title: "Study in Japan",
+    description: "Complete guidance for studying in Japan",
     icon: <Users className="w-8 h-8 text-red-600" />,
-    link: "/services/ssw-programs"
+    link: "/services/study-japan"
   }];
   const destinations = [{
     flag: "🇯🇵",
@@ -203,7 +203,7 @@ const Index = () => {
           }} className="text-center lg:text-left">
               <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
                 <span className="animate-pulse mr-2">🎓</span>
-                500+ Students Successfully Guided
+                500+ Students Successfully Sent
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
                 Your Gateway to{" "}
@@ -215,12 +215,23 @@ const Index = () => {
                 We simplify your study abroad journey — from language prep to visa success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button asChild size="lg" className="bg-iroha-red hover:bg-iroha-red-dark shadow-lg text-base px-8 py-6">
-                  <Link to="/contact">🎓 Get Free Counseling</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-iroha-red text-iroha-red hover:bg-red-50 text-base px-8 py-6">
-                  <Link to="/services">📖 Explore Services</Link>
-                </Button>
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-iroha-red hover:bg-iroha-red-dark shadow-lg text-base px-8 py-6"
+                  >
+                    🎓 Get Free Counseling
+                  </Button>
+                </Link>
+                <Link to="/services" className="w-full sm:w-auto">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="w-full border-iroha-red text-iroha-red hover:bg-red-50 text-base px-8 py-6"
+                  >
+                    📖 Explore Services
+                  </Button>
+                </Link>
               </div>
             </motion.div>
             

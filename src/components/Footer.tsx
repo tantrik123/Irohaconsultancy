@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Clock, Mail, Globe } from "lucide-react";
+
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return <footer className="bg-gradient-to-br from-gray-900 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -28,7 +33,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Clock size={18} className="text-red-400" />
-                <span>Sun-Fri: 10AM-6PM</span>
+                <span>Sun-Fri: 6AM-6PM</span>
               </div>
             </div>
           </div>
@@ -37,10 +42,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link to="/about" className="text-gray-300 hover:text-red-400 transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-red-400 transition-colors">Our Services</Link></li>
-              <li><Link to="/blog" className="text-gray-300 hover:text-red-400 transition-colors">Blog</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-red-400 transition-colors">Contact</Link></li>
+              <li><Link to="/about" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors">About Us</Link></li>
+              <li><Link to="/services" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors">Our Services</Link></li>
+              <li><Link to="/blog" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors">Blog</Link></li>
+              <li><Link to="/contact" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -49,25 +54,25 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6 text-white">Study Destinations</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/services/study-japan" className="text-gray-300 hover:text-red-400 transition-colors flex items-center space-x-2">
+                <Link to="/services/study-japan" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors flex items-center space-x-2">
                   <span>🇯🇵</span>
                   <span>Study in Japan</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/study-australia" className="text-gray-300 hover:text-red-400 transition-colors flex items-center space-x-2">
+                <Link to="/services/study-australia" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors flex items-center space-x-2">
                   <span>🇦🇺</span>
                   <span>Study in Australia</span>
                 </Link>
               </li>
               <li>
-                <Link to="/services/study-usa" className="text-gray-300 hover:text-red-400 transition-colors flex items-center space-x-2">
+                <Link to="/services/study-usa" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors flex items-center space-x-2">
                   <span>🇺🇸</span>
                   <span>Study in USA</span>
                 </Link>
               </li>
-              <li><Link to="/services/visa-support" className="text-gray-300 hover:text-red-400 transition-colors">Visa Support</Link></li>
-              <li><Link to="/services/language-classes" className="text-gray-300 hover:text-red-400 transition-colors">Language Classes</Link></li>
+              <li><Link to="/services/visa-support" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors">Visa Support</Link></li>
+              <li><Link to="/services/language-classes" onClick={scrollToTop} className="text-gray-300 hover:text-red-400 transition-colors">Language Classes</Link></li>
             </ul>
           </div>
         </div>
