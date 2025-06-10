@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
 
 const Blog = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const blogPosts = [
     {
       slug: "best-japanese-consultancy-kathmandu-2024",
@@ -15,7 +16,7 @@ const Blog = () => {
       category: "Consultancy Guide",
       readTime: "12 min read",
       publishDate: "2024-06-05",
-      image: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=400&h=250&fit=crop",
+      image: "/photos/consultancy.jpg",
       featured: true
     },
     {
@@ -25,7 +26,17 @@ const Blog = () => {
       category: "Visa Guide",
       readTime: "15 min read",
       publishDate: "2024-06-01",
-      image: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=400&h=250&fit=crop",
+      image: "/photos/japppan.jpg",
+      featured: true
+    },
+    {
+      slug: "japan-skilled-worker-guide-2024",
+      title: "Complete Guide to Japan Skilled Worker Visa Application 2024",
+      excerpt: "An in-depth guide for applying to Japan's Skilled Worker and Highly Skilled Professional visa programs, including industries, eligibility, and tips for Nepalese applicants.",
+      category: "Visa Guide",
+      readTime: "15 min read",
+      publishDate: "2024-06-10",
+      image: "/photos/japanworker.jpg",
       featured: true
     },
     {
@@ -35,82 +46,63 @@ const Blog = () => {
       category: "About Iroha",
       readTime: "10 min read",
       publishDate: "2024-05-28",
-      image: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=400&h=250&fit=crop",
+      image: "/photos/iroha.jpg",
       featured: false
     },
     {
-      slug: "jlpt-preparation-strategies-2024",
+      slug: "jlpt-preparation-guide-2024",
       title: "JLPT Preparation: Strategies for Success in 2024",
-      excerpt: "Proven strategies and study methods to help you pass the Japanese Language Proficiency Test (JLPT) with confidence using Iroha's free classes.",
-      category: "Test Prep",
-      readTime: "8 min read",
-      publishDate: "2024-05-25",
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=250&fit=crop",
-      featured: false
-    },
-    {
-      slug: "japanese-culture-guide-students-nepal",
-      title: "Japanese Culture Guide for Nepalese Students",
-      excerpt: "Essential cultural insights and etiquette tips to help Nepalese students adapt and thrive in Japanese academic and social environments.",
-      category: "Culture Guide",
+      excerpt: "A practical guide for cracking the Japanese Language Proficiency Test (JLPT) in 2024 — with levels N5 to N1 explained, preparation tips, recommended resources, and Nepal-specific advice.",
+     category: "Language Learning",
       readTime: "12 min read",
-      publishDate: "2024-05-20",
-      image: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=400&h=250&fit=crop",
-      featured: false
+      publishDate: "2024-06-10",
+      image: "/photos/jlpt.jpg",
+      featured: true,
     },
     {
-      slug: "australia-vs-japan-study-comparison",
+      slug: "study-australia-vs-japan-2024",
       title: "Studying in Australia vs Japan: Complete Comparison for Nepalese Students",
-      excerpt: "Comprehensive comparison of studying in Australia versus Japan covering costs, opportunities, culture, and career prospects for Nepalese students.",
-      category: "Study Comparison",
-      readTime: "14 min read",
-      publishDate: "2024-05-15",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop",
-      featured: false
+      excerpt: "A side-by-side comparison of studying in Australia and Japan for Nepalese students — covering cost, visa, language, part-time jobs, PR options, and cultural differences.",
+     category: "Study Abroad",
+  readTime: "14 min read",
+  publishDate: "2024-06-10",
+      image: "/photos/australia.jpg",
+      featured: true,
     },
     {
-      slug: "usa-student-visa-tips-nepal",
+      slug: "usa-student-visa-tips-2024",
       title: "USA Student Visa Application Tips for Nepalese Students 2024",
-      excerpt: "Expert guidance on F-1 visa application process, interview preparation, and document requirements for Nepalese students applying to US universities.",
-      category: "USA Guide",
-      readTime: "11 min read",
-      publishDate: "2024-05-10",
-      image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=250&fit=crop",
-      featured: false
-    },
-    {
-      slug: "scholarship-opportunities-japan-nepal",
-      title: "Top Scholarship Opportunities in Japan for Nepalese Students 2024",
-      excerpt: "Complete guide to MEXT scholarships, university-specific grants, and other funding opportunities available for Nepalese students studying in Japan.",
-      category: "Scholarships",
+      excerpt: "A complete guide for Nepalese students applying for a U.S. student visa in 2024 — including interview tips, document checklist, financial proof, and common mistakes to avoid.",
+      category: "Visa Guide",
       readTime: "13 min read",
-      publishDate: "2024-05-05",
-      image: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=400&h=250&fit=crop",
+      publishDate: "2024-06-10",
+      image: "/photos/usa.jpg",
       featured: false
     },
     {
-      slug: "part-time-jobs-japan-international-students",
-      title: "Part-time Jobs in Japan for International Students: Complete Guide",
-      excerpt: "Everything you need to know about working part-time in Japan as an international student, including legal requirements, popular jobs, and salary expectations.",
+      slug: "japanese-culture-guide-2024",
+      title: "Japanese Culture Guide for Nepalese Students",
+      excerpt: "A beginner-friendly guide to Japanese culture, customs, and etiquette tailored for Nepalese students moving to Japan — covering daily life, communication, food, festivals, and do's and don'ts.",
       category: "Student Life",
-      readTime: "9 min read",
-      publishDate: "2024-04-30",
-      image: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=400&h=250&fit=crop",
+      readTime: "12 min read",
+      publishDate: "2024-06-10",
+      image: "/photos/jculture.jpg",
       featured: false
     },
+   
     {
-      slug: "cost-living-japan-students-2024",
-      title: "Cost of Living in Japan for Students: Budget Guide 2024",
-      excerpt: "Detailed breakdown of living expenses in major Japanese cities for international students, including accommodation, food, transport, and lifestyle costs.",
-      category: "Financial Guide",
-      readTime: "10 min read",
-      publishDate: "2024-04-25",
-      image: "https://images.unsplash.com/photo-1549924231-f129b911e442?w=400&h=250&fit=crop",
+      slug: "japan-scholarships-nepalese-2024",
+      title: "Top Scholarship Opportunities in Japan for Nepalese Students 2024",
+      excerpt: "A detailed guide to the best scholarships available for Nepalese students in Japan — including MEXT, JASSO, university-specific aid, and private foundations.",
+      category: "Scholarships",
+      readTime: "14 min read",
+      publishDate: "2024-06-10",
+      image: "/photos/jstudent.jpg",
       featured: false
-    }
+    },
+    
   ];
-
-  const categories = ["All", "Consultancy Guide", "Visa Guide", "Test Prep", "Culture Guide", "Study Comparison", "Scholarships", "Student Life"];
+  const categories = ["All", "Consultancy Guide", "Visa Guide", "Language Learning", "Study Abroad", "Scholarships", "Student Life", "Financial Guide"];
 
   return (
     <>
@@ -145,11 +137,16 @@ const Blog = () => {
       <section className="py-8 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4 justify-center">
-            {categories.map((category, index) => (
+            {categories.map((category) => (
               <Button
-                key={index}
-                variant={index === 0 ? "default" : "outline"}
-                className={`rounded-full ${index === 0 ? 'bg-iroha-red hover:bg-iroha-red-dark' : 'border-iroha-red text-iroha-red hover:bg-iroha-red hover:text-white'}`}
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                className={`rounded-full transition-colors ${
+                  selectedCategory === category 
+                    ? 'bg-iroha-red hover:bg-iroha-red-dark text-white' 
+                    : 'border-iroha-red text-iroha-red hover:bg-iroha-red/10'
+                }`}
+                onClick={() => setSelectedCategory(category)}
               >
                 {category}
               </Button>
@@ -158,23 +155,26 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Featured Posts */}
+      {/* Blog Posts */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Featured Articles
+          {selectedCategory !== "All" && (
+            <h2 className="text-2xl font-bold mb-8">
+              Showing posts in: <span className="text-iroha-red">{selectedCategory}</span>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="ml-4 text-iroha-red hover:bg-iroha-red/10"
+                onClick={() => setSelectedCategory("All")}
+              >
+                Clear filter
+              </Button>
             </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            {blogPosts.filter(post => post.featured).map((post, index) => (
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts
+              .filter(post => selectedCategory === "All" || post.category === selectedCategory)
+              .map((post, index) => (
               <motion.div
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}
@@ -218,73 +218,6 @@ const Blog = () => {
                         <Link to={`/blog/${post.slug}`} className="flex items-center">
                           Read More
                           <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* All Posts */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              All Articles
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <motion.div
-                key={post.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover:shadow-lg transition-shadow group border-2 hover:border-iroha-red">
-                  <CardContent className="p-0">
-                    <div className="relative">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-40 object-cover rounded-t-lg"
-                        loading="lazy"
-                      />
-                      <div className="absolute top-3 left-3">
-                        <span className="bg-iroha-red text-white text-xs px-2 py-1 rounded-full">
-                          {post.category}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="p-4">
-                      <div className="flex items-center space-x-3 text-xs text-gray-500 mb-2">
-                        <div className="flex items-center space-x-1">
-                          <Calendar className="w-3 h-3" />
-                          <span>{new Date(post.publishDate).toLocaleDateString()}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <Clock className="w-3 h-3" />
-                          <span>{post.readTime}</span>
-                        </div>
-                      </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-iroha-red transition-colors line-clamp-2">
-                        {post.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                        {post.excerpt}
-                      </p>
-                      <Button asChild variant="ghost" className="p-0 h-auto text-sm text-iroha-red hover:text-iroha-red-dark">
-                        <Link to={`/blog/${post.slug}`} className="flex items-center">
-                          Read More
-                          <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </Button>
                     </div>
