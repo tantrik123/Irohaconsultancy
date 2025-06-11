@@ -1,19 +1,94 @@
 
+import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import { 
   MapPin, 
   Phone, 
   Clock, 
   Mail,
-  MessageSquare
+  MessageSquare,
+  Loader2
 } from "lucide-react";
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  interest: string;
+  message: string;
+}
+
 const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    interest: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://mail.irohaeduconsultancy.com/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent successfully!",
+          variant: "default",
+        });
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          interest: '',
+          message: ''
+        });
+      } else {
+        throw new Error(data.message || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: error.message || 'Failed to send message. Please try again later.',
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6 text-iroha-red" />,
@@ -161,14 +236,17 @@ const Contact = () => {
                     <h3 className="text-2xl font-bold text-gray-900">Send us a Message</h3>
                   </div>
                   
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                           First Name *
                         </label>
                         <Input 
-                          id="firstName" 
+                          id="firstName"
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleChange}
                           placeholder="Your first name"
                           required
                           className="focus:ring-iroha-red focus:border-iroha-red"
@@ -179,7 +257,10 @@ const Contact = () => {
                           Last Name *
                         </label>
                         <Input 
-                          id="lastName" 
+                          id="lastName"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
                           placeholder="Your last name"
                           required
                           className="focus:ring-iroha-red focus:border-iroha-red"
@@ -193,7 +274,10 @@ const Contact = () => {
                       </label>
                       <Input 
                         id="email" 
+                        name="email"
                         type="email" 
+                        value={formData.email}
+                        onChange={handleChange}
                         placeholder="your.email@example.com"
                         required
                         className="focus:ring-iroha-red focus:border-iroha-red"
@@ -206,8 +290,11 @@ const Contact = () => {
                       </label>
                       <Input 
                         id="phone" 
+                        name="phone"
                         type="tel" 
-                        placeholder="+977-XXXXXXXXXX"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+977 98XXXXXXXX"
                         className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
@@ -218,6 +305,9 @@ const Contact = () => {
                       </label>
                       <select 
                         id="interest" 
+                        name="interest"
+                        value={formData.interest}
+                        onChange={handleChange}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-iroha-red focus:border-iroha-red"
                       >
                         <option value="">Select your interest</option>
@@ -235,15 +325,29 @@ const Contact = () => {
                       </label>
                       <Textarea 
                         id="message" 
-                        rows={4}
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        rows={5}
                         placeholder="Tell us about your study abroad goals, preferred course, budget, or any specific questions..."
                         required
                         className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
                     
-                    <Button type="submit" className="w-full bg-iroha-red hover:bg-iroha-red-dark">
-                      Send Message
+                    <Button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full bg-iroha-red hover:bg-iroha-red/90 text-white py-6 text-lg"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        'Send Message'
+                      )}
                     </Button>
                     
                     <p className="text-sm text-gray-500 text-center">
