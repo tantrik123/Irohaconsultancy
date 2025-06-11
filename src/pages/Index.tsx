@@ -1022,12 +1022,8 @@ const Index = () => {
               Hospitality, and more. Get direct pathway to work in Japan with
               our SSW visa support.
             </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-iroha-red hover:bg-gray-100 shadow-lg"
-            >
-              <Link to="/services/ssw-programs">Learn About SSW Programs</Link>
+            <Button asChild size="lg" className="bg-white text-iroha-red hover:bg-gray-100 shadow-lg">
+              <Link to="/blog/japan-skilled-worker-guide-2024">Learn About SSW Programs</Link>
             </Button>
           </motion.div>
         </div>
