@@ -50,17 +50,30 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://mail.irohaeduconsultancy.com/api/contact', {
+      const endpoint = `${import.meta.env.VITE_API_URL}/api/contact`;
+      
+      console.log('Sending request to:', endpoint);
+      console.log('Request payload:', formData);
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData)
       });
+      
+      console.log('Response status:', response.status);
+      
+      const responseData = await response.json();
+      console.log('Parsed response:', responseData);
+      
+      if (!response.ok) {
+        throw new Error(responseData.message || `HTTP error! status: ${response.status}`);
+      }
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (responseData.success) {
         toast({
           title: "Success!",
           description: "Your message has been sent successfully!",
@@ -76,13 +89,15 @@ const Contact = () => {
           message: ''
         });
       } else {
-        throw new Error(data.message || 'Failed to send message');
+        throw new Error(responseData.message || 'Failed to send message');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error in handleSubmit:', error);
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+      
       toast({
         title: "Error",
-        description: error.message || 'Failed to send message. Please try again later.',
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
