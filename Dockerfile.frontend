@@ -1,0 +1,28 @@
+# Use specific version of Node.js 18 Alpine with security updates
+FROM node:18.20.3-alpine3.20
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+COPY bun.lockb ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+
+# Build the application
+RUN npm run build
+
+# Expose port 7000
+EXPOSE 7000
+
+# Set environment variable for API URL
+ENV VITE_API_URL=http://backend:5000
+
+# Start the development server
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "7000"]
