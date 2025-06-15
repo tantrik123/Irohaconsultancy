@@ -172,29 +172,6 @@ const Index = () => {
       description: "Successful visa processing and pre-departure guidance",
     },
   ];
-  const testimonials = [
-    {
-      name: "Priya Sharma",
-      destination: "Tokyo, Japan",
-      text: "Iroha Consultancy made my dream of studying in Japan a reality. Their guidance through the visa process was exceptional.",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face",
-    },
-    {
-      name: "Rajesh Thapa",
-      destination: "Sydney, Australia",
-      text: "Professional service and honest advice. They helped me get into my preferred university in Australia.",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-    },
-    {
-      name: "Sita Poudel",
-      destination: "California, USA",
-      text: "The language classes and test preparation were excellent. Now I'm studying computer science in the US!",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
-    },
-  ];
   const stats = [
     {
       number: "500+",
@@ -988,34 +965,11 @@ const Index = () => {
       {/* Success Stories */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
-            className="text-center mb-16"
-          >
-
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
-              Success Stories
-            </h2>
-            <p className="text-lg text-gray-600">
-              Hear from our students who are now studying abroad
-            </p>
-          </motion.div>
-          <script src="https://static.elfsight.com/platform/platform.js" async></script>
-          <div className="elfsight-app-b7a33996-256e-4d90-a5a2-3ed9e52a5aa1" data-elfsight-app-lazy>
-          </div>
+          <iframe
+            src="https://b7a33996256e4d90a5a23ed9e52a5aa1.elf.site/"
+            width="100%"
+            height="600"
+          ></iframe>
         </div>
       </section>
 
