@@ -192,7 +192,7 @@ app.post('/api/contact', async (req, res) => {
 
 // Basic route for testing
 app.get('/', (req, res) => {
-  res.send('Iroha Consultancy Mail Server is running');
+  res.send('iroha japanese educational consultancy Mail Server is running');
 });
 
 // Start the server

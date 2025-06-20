@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -78,9 +77,9 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Services - Study Abroad Support | Iroha Consultancy Kathmandu</title>
-        <meta name="description" content="Comprehensive study abroad services including Japan, Australia, USA education consulting, visa support, language classes, and test preparation at Iroha Consultancy Kathmandu." />
-        <meta property="og:title" content="Study Abroad Services - Japan, Australia, USA | Iroha Consultancy" />
+        <title>Services - Study Abroad Support | iroha japanese educational consultancy Kathmandu</title>
+        <meta name="description" content="Comprehensive study abroad services including Japan, Australia, USA education consulting, visa support, language classes, and test preparation at iroha japanese educational consultancy Kathmandu." />
+        <meta property="og:title" content="Study Abroad Services - Japan, Australia, USA | iroha japanese educational consultancy" />
         <meta property="og:description" content="Expert guidance for studying abroad with visa support, language training, and university admission assistance for Japan, Australia, and USA." />
       </Helmet>
 

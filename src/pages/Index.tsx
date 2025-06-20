@@ -212,7 +212,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>
-          Iroha Consultancy - Study Abroad in Japan, Australia, USA | Kathmandu
+          iroha japanese educational consultancy - Study Abroad in Japan, Australia, USA | Kathmandu
         </title>
         <meta
           name="description"
@@ -220,7 +220,7 @@ const Index = () => {
         />
         <meta
           property="og:title"
-          content="Iroha Consultancy - Your Gateway to International Education"
+          content="iroha japanese educational consultancy - Your Gateway to International Education"
         />
         <meta
           property="og:description"
@@ -230,7 +230,7 @@ const Index = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
-            name: "Iroha Consultancy",
+            name: "iroha japanese educational consultancy",
             description:
               "Study abroad consultancy helping students from Nepal study in Japan, Australia, and USA",
             address: {
@@ -398,7 +398,7 @@ const Index = () => {
               Who We Are?
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Founded in 2017 in the heart of Kathmandu, Iroha Consultancy is a
+              Founded in 2017 in the heart of Kathmandu, iroha japanese educational consultancy is a
               Nepal-based consultancy with a mission to simplify overseas
               education. Our name "Iroha" represents the beginning of knowledge
               in Japanese culture, symbolizing your first step toward
@@ -1007,8 +1007,8 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Best Japanese Consultancy in Kathmandu 2024: Why Iroha Stands Out",
-                excerpt: "Discover why Iroha Consultancy is recognized as the leading Japanese education consultancy in Kathmandu with proven success rates and comprehensive support.",
+                title: "Best Japanese Consultancy in Kathmandu 2024: Why iroha japanese educational consultancy Stands Out",
+                excerpt: "Discover why iroha japanese educational consultancy is recognized as the leading Japanese education consultancy in Kathmandu with proven success rates and comprehensive support.",
                 image: "/photos/consultancy.jpg",
                 slug: "best-japanese-consultancy-kathmandu-2024",
                 category: "Consultancy Guide",
@@ -1123,10 +1123,10 @@ const Index = () => {
             }}
           >
             <h2 className="text-2xl md:text-4xl font-bold text-white mb-6">
-              Start your journey with Iroha — 100% visa support, no hidden fees
+              Start your journey with iroha japanese educational consultancy — 100% visa support, no hidden fees
             </h2>
             <p className="text-lg md:text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-              Join thousands of successful students who chose Iroha Consultancy
+              Join thousands of successful students who chose iroha japanese educational consultancy
               for their study abroad dreams. Get personalized guidance and
               comprehensive support every step of the way.
             </p>

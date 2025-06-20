@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
@@ -134,9 +133,9 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Iroha Consultancy - Study Abroad Consultation | Kathmandu</title>
-        <meta name="description" content="Contact Iroha Consultancy in Dillibazar, Kathmandu for study abroad consultation. Call +977-9840175421 or email info@irohaconsultancy.com for Japan, Australia, USA education guidance." />
-        <meta property="og:title" content="Contact Iroha Consultancy - Free Study Abroad Consultation" />
+        <title>Contact iroha japanese educational consultancy - Study Abroad Consultation | Kathmandu</title>
+        <meta name="description" content="Contact iroha japanese educational consultancy in Dillibazar, Kathmandu for study abroad consultation. Call +977-9840175421 or email info@irohaconsultancy.com for Japan, Australia, USA education guidance." />
+        <meta property="og:title" content="Contact iroha japanese educational consultancy - Free Study Abroad Consultation" />
         <meta property="og:description" content="Get in touch with our study abroad experts in Kathmandu for personalized guidance on studying in Japan, Australia, and USA." />
         <script type="application/ld+json">
           {JSON.stringify({
@@ -144,7 +143,7 @@ const Contact = () => {
             "@type": "ContactPage",
             "mainEntity": {
               "@type": "EducationalOrganization",
-              "name": "Iroha Consultancy",
+              "name": "iroha japanese educational consultancy",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Dillibazar",
