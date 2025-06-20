@@ -63,19 +63,19 @@ const About = () => {
     <>
       <Helmet>
         <title>
-          About Iroha Consultancy - Study Abroad Experts Since 2017 | Kathmandu
+          About iroha japanese educational consultancy - Study Abroad Experts Since 2017 | Kathmandu
         </title>
         <meta
           name="description"
-          content="Learn about Iroha Consultancy's mission to help Nepali students study abroad in Japan, Australia, and USA. Founded in 2017 in Kathmandu with official registration and expert guidance."
+          content="Learn about iroha japanese educational consultancy's mission to help Nepali students study abroad in Japan, Australia, and USA. Founded in 2017 in Kathmandu with official registration and expert guidance."
         />
         <meta
           property="og:title"
-          content="About Iroha Consultancy - Your Gateway to International Education"
+          content="About iroha japanese educational consultancy - Your Gateway to International Education"
         />
         <meta
           property="og:description"
-          content="Founded in 2017 in Kathmandu, Iroha Consultancy is your trusted partner for studying abroad with official registration and comprehensive support."
+          content="Founded in 2017 in Kathmandu, iroha japanese educational consultancy is your trusted partner for studying abroad with official registration and comprehensive support."
         />
       </Helmet>
 
@@ -299,7 +299,7 @@ const About = () => {
               </h2>
             </div>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              At Iroha Education Consultancy, we believe that a strong,
+              At iroha japanese educational consultancy, we believe that a strong,
               passionate team is the foundation of every student's success. Get
               to know the people who are dedicated to guiding you on your
               journey to Japan!
