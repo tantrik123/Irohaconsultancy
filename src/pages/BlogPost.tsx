@@ -1094,9 +1094,9 @@ const BlogPost = () => {
     <>
       <Helmet>
         <title>{post.title} | Iroha Consultancy Blog</title>
-        <meta name="description" content={post.excerpt} />
+        <meta name="description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta property="og:image" content={post.image} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={post.publishDate} />

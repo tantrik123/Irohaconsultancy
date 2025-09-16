@@ -60,9 +60,6 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-iroha-red hover:bg-iroha-red-dark shadow-lg">
-              <Link to="/contact" onClick={handleNavClick}>Get Started</Link>
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -100,13 +97,6 @@ const Navbar = () => {
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-2">
-                  <Button asChild className="w-full bg-iroha-red hover:bg-iroha-red-dark">
-                    <Link to="/contact" onClick={handleNavClick}>
-                      Get Started
-                    </Link>
-                  </Button>
-                </div>
               </div>
             </motion.div>
           )}

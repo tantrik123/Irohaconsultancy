@@ -113,13 +113,13 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6 text-iroha-red" />,
       title: "Call Us",
-      details: ["+977-9840175421"],
+      details: ["+977-9840175421/+977-14516024"],
       note: "Available during business hours"
     },
     {
       icon: <Mail className="w-6 h-6 text-iroha-red" />,
       title: "Email Us",
-      details: ["info@irohaconsultancy.com"],
+      details: ["info@irohaeduconsultancy.com"],
       note: "We'll respond within 24 hours"
     },
     {
@@ -134,7 +134,7 @@ const Contact = () => {
     <>
       <Helmet>
         <title>Contact iroha japanese educational consultancy - Study Abroad Consultation | Kathmandu</title>
-        <meta name="description" content="Contact iroha japanese educational consultancy in Dillibazar, Kathmandu for study abroad consultation. Call +977-9840175421 or email info@irohaconsultancy.com for Japan, Australia, USA education guidance." />
+        <meta name="description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta property="og:title" content="Contact iroha japanese educational consultancy - Free Study Abroad Consultation" />
         <meta property="og:description" content="Get in touch with our study abroad experts in Kathmandu for personalized guidance on studying in Japan, Australia, and USA." />
         <script type="application/ld+json">
@@ -150,9 +150,9 @@ const Contact = () => {
                 "addressLocality": "Kathmandu",
                 "addressCountry": "Nepal"
               },
-              "telephone": "+977-9840175421",
-              "email": "info@irohaconsultancy.com",
-              "openingHours": "Mo-Fr 10:00-18:00"
+              "telephone": "+977-9840175421/+977-14516024",
+              "email": "info@irohaeduconsultancy.com",
+              "openingHours": "Mo-Fr 6:00-18:00"
             }
           })}
         </script>

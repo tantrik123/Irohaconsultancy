@@ -25,11 +25,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Phone size={18} className="text-red-400" />
-                <span>+977-9840175421</span>
+                <span>+977-9840175421/+977-14516024</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Mail size={18} className="text-red-400" />
-                <span>info@irohaconsultancy.com</span>
+                <span>info@irohaeduconsultancy.com</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Clock size={18} className="text-red-400" />
@@ -80,7 +80,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-center md:text-left">
-              © 2024 Iroha Consultancy. All rights reserved. | Your Gateway to International Education
+              © 2024 Iroha Japanese Educational Consultancy. All rights reserved. | Your Gateway to Japan
             </p>
             <div className="flex items-center space-x-2 mt-4 md:mt-0">
               <Globe size={16} className="text-red-400" />
