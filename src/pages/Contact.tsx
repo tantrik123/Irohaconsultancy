@@ -6,13 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { 
-  MapPin, 
-  Phone, 
-  Clock, 
+import {
+  MapPin,
+  Phone,
+  Clock,
   Mail,
   MessageSquare,
-  Loader2
+  Loader2,
+  Facebook,
+  Instagram,
+  Linkedin
 } from "lucide-react";
 
 interface FormData {
@@ -50,7 +53,7 @@ const Contact = () => {
 
     try {
       const endpoint = `${import.meta.env.VITE_API_URL}/api/contact`;
-      
+
       console.log('Sending request to:', endpoint);
       console.log('Request payload:', formData);
 
@@ -62,12 +65,12 @@ const Contact = () => {
         },
         body: JSON.stringify(formData)
       });
-      
+
       console.log('Response status:', response.status);
-      
+
       const responseData = await response.json();
       console.log('Parsed response:', responseData);
-      
+
       if (!response.ok) {
         throw new Error(responseData.message || `HTTP error! status: ${response.status}`);
       }
@@ -93,7 +96,7 @@ const Contact = () => {
     } catch (error) {
       console.error('Error in handleSubmit:', error);
       const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
-      
+
       toast({
         title: "Error",
         description: errorMessage,
@@ -171,8 +174,8 @@ const Contact = () => {
               Get in Touch with Our Experts
             </h1>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
-              Ready to start your study abroad journey? Our experienced counselors are here 
-              to provide personalized guidance and answer all your questions about studying 
+              Ready to start your study abroad journey? Our experienced counselors are here
+              to provide personalized guidance and answer all your questions about studying
               in Japan, Australia, or the USA.
             </p>
           </motion.div>
@@ -232,6 +235,53 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Social Media Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Connect With Us on Social Media
+            </h2>
+            <p className="text-lg text-gray-600 mb-10">
+              Follow us for updates and education tips
+            </p>
+
+            <div className="flex justify-center space-x-6">
+              <a
+                href="https://www.facebook.com/Irohaedunp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 group border border-transparent hover:border-iroha-red"
+              >
+                <Facebook className="w-8 h-8 text-gray-600 group-hover:text-iroha-red transition-colors" />
+              </a>
+              <a
+                href="https://www.instagram.com/irohaeduconsultancy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 group border border-transparent hover:border-iroha-red"
+              >
+                <Instagram className="w-8 h-8 text-gray-600 group-hover:text-iroha-red transition-colors" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/iroha-education-consultancy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110 group border border-transparent hover:border-iroha-red"
+              >
+                <Linkedin className="w-8 h-8 text-gray-600 group-hover:text-iroha-red transition-colors" />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Contact Form and Map */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -249,14 +299,14 @@ const Contact = () => {
                     <MessageSquare className="w-6 h-6 text-iroha-red" />
                     <h3 className="text-2xl font-bold text-gray-900">Send us a Message</h3>
                   </div>
-                  
+
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                           First Name *
                         </label>
-                        <Input 
+                        <Input
                           id="firstName"
                           name="firstName"
                           value={formData.firstName}
@@ -270,7 +320,7 @@ const Contact = () => {
                         <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
                           Last Name *
                         </label>
-                        <Input 
+                        <Input
                           id="lastName"
                           name="lastName"
                           value={formData.lastName}
@@ -281,15 +331,15 @@ const Contact = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                         Email Address *
                       </label>
-                      <Input 
-                        id="email" 
+                      <Input
+                        id="email"
                         name="email"
-                        type="email" 
+                        type="email"
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="your.email@example.com"
@@ -297,28 +347,28 @@ const Contact = () => {
                         className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                         Phone Number
                       </label>
-                      <Input 
-                        id="phone" 
+                      <Input
+                        id="phone"
                         name="phone"
-                        type="tel" 
+                        type="tel"
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+977 98XXXXXXXX"
                         className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-1">
                         Study Destination Interest
                       </label>
-                      <select 
-                        id="interest" 
+                      <select
+                        id="interest"
                         name="interest"
                         value={formData.interest}
                         onChange={handleChange}
@@ -332,13 +382,13 @@ const Contact = () => {
                         <option value="other">Other Services</option>
                       </select>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                         Message *
                       </label>
-                      <Textarea 
-                        id="message" 
+                      <Textarea
+                        id="message"
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
@@ -348,9 +398,9 @@ const Contact = () => {
                         className="focus:ring-iroha-red focus:border-iroha-red"
                       />
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       disabled={isSubmitting}
                       className="w-full bg-iroha-red hover:bg-iroha-red/90 text-white py-6 text-lg"
                     >
@@ -363,7 +413,7 @@ const Contact = () => {
                         'Send Message'
                       )}
                     </Button>
-                    
+
                     <p className="text-sm text-gray-500 text-center">
                       * Required fields. We'll respond within 24 hours.
                     </p>
@@ -382,21 +432,21 @@ const Contact = () => {
               <Card className="h-full">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Find Us</h3>
-                  
+
                   {/* Google Maps Embed */}
                   <div className="rounded-lg overflow-hidden mb-6">
-                    <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3871438164006!2d85.32532267611367!3d27.705330625579244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19007f6d0e51%3A0x33a303545c67d0c9!2sIROHA%20Japanese%20Education%20Consultancy!5e0!3m2!1sen!2snp!4v1749218982043!5m2!1sen!2snp" 
-                      width="100%" 
-                      height="300" 
-                      style={{border:0}} 
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.3871438164006!2d85.32532267611367!3d27.705330625579244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19007f6d0e51%3A0x33a303545c67d0c9!2sIROHA%20Japanese%20Education%20Consultancy!5e0!3m2!1sen!2snp!4v1749218982043!5m2!1sen!2snp"
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
                       allowFullScreen
-                      loading="lazy" 
+                      loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                       title="Iroha Consultancy Location"
                     />
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Office Address</h4>
@@ -405,19 +455,19 @@ const Contact = () => {
                         Nepal
                       </p>
                     </div>
-                    
+
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Public Transport</h4>
                       <p className="text-gray-600">
-                        Easily accessible by local buses and taxis from major areas of Kathmandu. 
+                        Easily accessible by local buses and taxis from major areas of Kathmandu.
                         Located in the heart of Dillibazar with nearby landmarks for easy navigation.
                       </p>
                     </div>
-                    
+
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2">Parking</h4>
                       <p className="text-gray-600">
-                        Limited street parking available. We recommend using public transport 
+                        Limited street parking available. We recommend using public transport
                         for convenience.
                       </p>
                     </div>
