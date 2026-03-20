@@ -1,59 +1,80 @@
-version: '3.8'
+# ============================================================
+# Iroha Educational Consultancy
+# Joins realhrsoft-network so the shared nginx can proxy to it.
+#
+# irohaeduconsultancy.com      → iroha:6000      (frontend)
+# mail.irohaeduconsultancy.com → iroha-api:6001  (email backend)
+# ============================================================
+
+name: iroha
+
+networks:
+  realhrsoft-network:
+    external: true
 
 services:
-  frontend:
+
+  iroha:
     build:
       context: .
       dockerfile: Dockerfile.frontend
+      args:
+        VITE_API_URL: https://mail.irohaeduconsultancy.com
+    image: iroha-frontend:latest
+    container_name: iroha
+    restart: always
     ports:
-      - "7000:7000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - NODE_ENV=development
-      - VITE_API_URL=https://mail.irohaeduconsultancy.com
-    depends_on:
-      - backend
-    networks:
-      - app-network
-    restart: unless-stopped
-    stdin_open: true
-    tty: true
-
-  backend:
-    build:
-      context: .
-      dockerfile: Dockerfile.backend
-    ports:
-      - "8000:8000"
-
-    env_file:
-      - .env
-    environment:
-      - NODE_ENV=development
-      - PORT=8000
-      - ZOHO_HOST=${ZOHO_HOST}
-      - ZOHO_PORT=${ZOHO_PORT}
-      - ZOHO_USER=${ZOHO_USER}
-      - ZOHO_PASS=${ZOHO_PASS}
-      - ADMIN_EMAIL=${ADMIN_EMAIL}
-      - COMPANY_NAME=${COMPANY_NAME}
-      - COMPANY_WEBSITE=${COMPANY_WEBSITE}
-      - VITE_API_URL=${VITE_API_URL}
-    volumes:
-      - ./server:/app/server
-      - /app/node_modules
-    networks:
-      - app-network
-    restart: unless-stopped
+      - "6000:6000"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:6000/ || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 40s
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 32M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    networks:
+      - realhrsoft-network
 
-networks:
-  app-network:
-    driver: bridge
+  iroha-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    image: iroha-api:latest
+    container_name: iroha-api
+    restart: always
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: "6001"
+    expose:
+      - "6001"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:6001/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+        reservations:
+          memory: 32M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "3"
+    networks:
+      - realhrsoft-network
