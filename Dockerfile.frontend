@@ -1,28 +1,24 @@
-# Use specific version of Node.js 18 Alpine with security updates
-FROM node:18.20.3-alpine3.20
+# Stage 1: Build the React/Vite frontend
+FROM node:18.20.3-alpine3.20 AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
 COPY package*.json ./
-COPY bun.lockb ./
+RUN npm ci
 
-# Install dependencies
-RUN npm install
-
-# Copy source code
 COPY . .
 
+ARG VITE_API_URL=https://mail.irohaeduconsultancy.com
+ENV VITE_API_URL=$VITE_API_URL
 
-# Build the application
 RUN npm run build
 
-# Expose port 7000
-EXPOSE 7000
+# Stage 2: Serve with nginx on port 6000
+FROM nginx:alpine AS production
 
-# Set environment variable for API URL
-ENV VITE_API_URL=http://backend:5000
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx-iroha.conf /etc/nginx/conf.d/default.conf
 
-# Start the development server
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "7000"]
+EXPOSE 6000
+
+CMD ["nginx", "-g", "daemon off;"]

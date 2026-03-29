@@ -133,3 +133,10 @@
     background-color: hsl(var(--bittersweet));
   }
 }
+
+/* Hide Elfsight Widget Title */
+div[class*="eapps-google-reviews-inner-title-text"],
+div[class*="Title__Container"],
+.eapps-widget-title {
+  display: none !important;
+}

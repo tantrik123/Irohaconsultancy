@@ -108,7 +108,7 @@ const Blog = () => {
     <>
       <Helmet>
         <title>Blog - Study Abroad Tips & Guides | Iroha Consultancy</title>
-        <meta name="description" content="Expert study abroad advice, visa tips, test preparation guides, and cultural insights for students planning to study in Japan, Australia, and USA from Nepal." />
+        <meta name="description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta property="og:title" content="Study Abroad Blog - Tips, Guides & Insights | Iroha Consultancy" />
         <meta property="og:description" content="Expert advice and guides for studying abroad including visa tips, test preparation, and cultural insights for Japan, Australia, and USA." />
       </Helmet>

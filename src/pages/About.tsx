@@ -67,7 +67,7 @@ const About = () => {
         </title>
         <meta
           name="description"
-          content="Learn about iroha japanese educational consultancy's mission to help Nepali students study abroad in Japan, Australia, and USA. Founded in 2017 in Kathmandu with official registration and expert guidance."
+          content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success."
         />
         <meta
           property="og:title"
@@ -75,7 +75,7 @@ const About = () => {
         />
         <meta
           property="og:description"
-          content="Founded in 2017 in Kathmandu, iroha japanese educational consultancy is your trusted partner for studying abroad with official registration and comprehensive support."
+          content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success."
         />
       </Helmet>
 
@@ -93,7 +93,7 @@ const About = () => {
                 <span className="text-blue-600"> International Education</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Since 2017, Iroha Consultancy has been transforming dreams into
+                Since 2017, Iroha Japanese Educational Consultancy has been transforming dreams into
                 reality, connecting ambitious students from Nepal with
                 world-class educational opportunities in Japan, Australia, and
                 the United States.
@@ -145,8 +145,8 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Founded in the vibrant heart of Dillibazar, Kathmandu, Iroha
-                  Consultancy began with a simple yet powerful vision: to make
+                  Founded in the vibrant heart of Dillibazar, Kathmandu, Iroha Japanese Educational Consultancy
+                  began with a simple yet powerful vision: to make
                   international education accessible to every deserving student
                   in Nepal.
                 </p>
@@ -299,7 +299,7 @@ const About = () => {
               </h2>
             </div>
             <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              At iroha japanese educational consultancy, we believe that a strong,
+              At Iroha Japanese Educational Consultancy, we believe that a strong,
               passionate team is the foundation of every student's success. Get
               to know the people who are dedicated to guiding you on your
               journey to Japan!
@@ -319,7 +319,7 @@ const About = () => {
                   <CardContent className="p-6 text-center">
                     <div className="flex justify-center mb-4">
                       <Avatar className="w-44 h-44">
-                        <AvatarImage src={member.avatar} alt={member.name} />
+                        <AvatarImage src={member.avatar} alt={member.name} className="w-full h-full object-cover object-top" loading="lazy" />
                         <AvatarFallback className="text-xl font-semibold bg-blue-100 text-blue-600">
                           {member.initials}
                         </AvatarFallback>

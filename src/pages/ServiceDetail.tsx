@@ -198,6 +198,37 @@ const ServiceDetail = () => {
         "Active participation in mock tests"
       ]
     }
+    ,
+    "working-visa": {
+      title: "Working VISA (SSW/TITP/Bachelor's)",
+      description: "End-to-end support for Japan's work pathways: SSW (Specified Skilled Worker), TITP (Technical Intern Training Program), and post-bachelor work visas.",
+      hero: "/photos/japanworker.jpg",
+      features: [
+        "Eligibility assessment and pathway selection",
+        "JLPT N4 / JFT-Basic preparation",
+        "Industry-specific skills test guidance",
+        "Employer matching and interview preparation",
+        "COE and visa documentation support",
+        "Pre-departure cultural and workplace orientation",
+        "Post-arrival onboarding and settlement assistance"
+      ],
+      process: [
+        "Profile evaluation and goal setting",
+        "Language and skills test roadmap",
+        "Document preparation and verification",
+        "Employer screening and interview",
+        "COE submission and visa filing",
+        "Pre-departure training",
+        "Arrival support in Japan"
+      ],
+      requirements: [
+        "Valid passport and clean records",
+        "JLPT N4 or JFT-Basic (for SSW)",
+        "Relevant industry skills/experience for target sector",
+        "Financial and health documents as required",
+        "Signed employment contract (for SSW/TITP)"
+      ]
+    }
   };
 
   const service = serviceData[slug || ""];
@@ -219,9 +250,9 @@ const ServiceDetail = () => {
     <>
       <Helmet>
         <title>{service.title} - Iroha Consultancy | Study Abroad Services</title>
-        <meta name="description" content={service.description} />
+        <meta name="description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta property="og:title" content={`${service.title} - Iroha Consultancy`} />
-        <meta property="og:description" content={service.description} />
+        <meta property="og:description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
       </Helmet>
 
       {/* Hero Section */}

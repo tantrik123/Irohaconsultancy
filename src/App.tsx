@@ -24,11 +24,11 @@ const App = () => (
       <Helmet>
         <html lang="en" />
         <title>iroha japanese educational consultancy - Study Abroad in Japan, Australia, USA | Kathmandu, Nepal</title>
-        <meta name="description" content="iroha japanese educational consultancy helps students from Nepal study abroad in Japan, Australia, and USA. Official registration, visa support, language classes, and university admission guidance since 2017." />
+        <meta name="description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta name="keywords" content="study abroad, Japan, Australia, USA, Nepal, visa consultancy, university admission, language classes, JLPT, IELTS" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="iroha japanese educational consultancy - Your Gateway to International Education" />
-        <meta property="og:description" content="Study abroad consultancy in Kathmandu helping students pursue education in Japan, Australia, and USA with comprehensive visa and admission support." />
+        <meta property="og:description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="canonical" href="https://irohaconsultancy.com" />
       </Helmet>

@@ -24,6 +24,21 @@ const Services = () => {
       popular: true
     },
     {
+      slug: "working-visa",
+      icon: <FileCheck className="w-8 h-8 text-iroha-red" />,
+      title: "Working VISA (SSW/TITP/Bachelor's)",
+      description: "Guidance for Japan work pathways including SSW, TITP, and post-bachelor visas with language and exam prep.",
+      features: [
+        "Eligibility assessment & pathway selection",
+        "JFT-Basic/JLPT N4 language preparation",
+        "Skills test guidance and booking",
+        "Employer matching and interview prep",
+        "COE & visa documentation",
+        "Post-arrival onboarding support"
+      ],
+      popular: true
+    },
+    {
       slug: "study-australia",
       icon: <Globe className="w-8 h-8 text-iroha-red" />,
       title: "Study in Australia", 
@@ -78,7 +93,7 @@ const Services = () => {
     <>
       <Helmet>
         <title>Services - Study Abroad Support | iroha japanese educational consultancy Kathmandu</title>
-        <meta name="description" content="Comprehensive study abroad services including Japan, Australia, USA education consulting, visa support, language classes, and test preparation at iroha japanese educational consultancy Kathmandu." />
+        <meta name="description" content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success." />
         <meta property="og:title" content="Study Abroad Services - Japan, Australia, USA | iroha japanese educational consultancy" />
         <meta property="og:description" content="Expert guidance for studying abroad with visa support, language training, and university admission assistance for Japan, Australia, and USA." />
       </Helmet>

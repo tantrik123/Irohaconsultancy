@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -23,6 +24,17 @@ import {
   Mail,
 } from "lucide-react";
 const Index = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://elfsightcdn.com/platform.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const whyChooseUsFeatures = [
     {
       icon: <CheckCircle className="w-6 h-6 text-green-600" />,
@@ -67,6 +79,12 @@ const Index = () => {
   ];
   const services = [
     {
+      title: "Study in Japan",
+      description: "Complete guidance for studying in Japan",
+      icon: <Users className="w-8 h-8 text-red-600" />,
+      link: "/services/study-japan",
+    },
+    {
       title: "Study In USA",
       description: "Personalized guidance for USA",
       icon: <GraduationCap className="w-8 h-8 text-blue-600" />,
@@ -95,12 +113,6 @@ const Index = () => {
       description: "Comprehensive support for Australian education ",
       icon: <GraduationCap className="w-8 h-8 text-teal-600" />,
       link: "/services/study-australia",
-    },
-    {
-      title: "Study in Japan",
-      description: "Complete guidance for studying in Japan",
-      icon: <Users className="w-8 h-8 text-red-600" />,
-      link: "/services/study-japan",
     },
   ];
   const destinations = [
@@ -212,11 +224,11 @@ const Index = () => {
     <>
       <Helmet>
         <title>
-          iroha japanese educational consultancy - Study Abroad in Japan, Australia, USA | Kathmandu
+          Iroha Japanese Educational Consultancy - Best Japanese Educational Consultancy in Kathmandu,Nepal
         </title>
         <meta
           name="description"
-          content="Official study abroad consultancy in Kathmandu helping Nepali students pursue education in Japan, Australia, and USA. Visa support, language classes, and university admission guidance since 2017."
+          content="Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success."
         />
         <meta
           property="og:title"
@@ -230,9 +242,9 @@ const Index = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
-            name: "iroha japanese educational consultancy",
+            name: "Iroha Japanese Educational Consultancy",
             description:
-              "Study abroad consultancy helping students from Nepal study in Japan, Australia, and USA",
+              "Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success.",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Dillibazar",
@@ -266,13 +278,12 @@ const Index = () => {
               className="text-center lg:text-left"
             >
               <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Your Gateway to <span className="text-iroha-red">Japan</span>,{" "}
-                <span className="text-green-600">Australia</span> & the{" "}
-                <span className="text-blue-600">USA</span>
+                Iroha Japanese{" "}
+                <span className="text-red-600">Educational</span>{" "}
+                <span className="text-blue-600">Consultancy</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl">
-                We simplify your study abroad journey — from language prep to
-                visa success.
+                Best Japanese consultancy in Kathmandu, we simplify your study abroad journey, from top Japanese language classes to visa success.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
@@ -336,7 +347,7 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-iroha-red">
+      <section className="py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
             {stats.map((stat, index) => (
@@ -398,7 +409,7 @@ const Index = () => {
               Who We Are?
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Founded in 2017 in the heart of Kathmandu, iroha japanese educational consultancy is a
+              Founded in 2017 in the heart of Kathmandu, Iroha Japanese Educational Consultancy is a
               Nepal-based consultancy with a mission to simplify overseas
               education. Our name "Iroha" represents the beginning of knowledge
               in Japanese culture, symbolizing your first step toward
@@ -461,7 +472,7 @@ const Index = () => {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We combine official registration, experienced guidance, and
               genuine care to provide the most comprehensive study abroad
-              support in Nepal.
+              support in Kathmandu, Nepal.
             </p>
           </motion.div>
 
@@ -963,13 +974,27 @@ const Index = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <iframe
-            src="https://b7a33996256e4d90a5a23ed9e52a5aa1.elf.site/"
-            width="100%"
-            height="600"
-          ></iframe>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center bg-red-100 text-iroha-red px-4 py-2 rounded-full text-sm font-medium mb-6">
+              Student Success Stories
+            </div>
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6">
+              What Our Students Say
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Real experiences from students who trusted us with their dreams
+            </p>
+          </motion.div>
+
+          <div className="elfsight-app-9b999bc8-96b7-4450-abd3-095ea5c2f05b" data-elfsight-app-lazy></div>
         </div>
       </section>
 
@@ -1176,16 +1201,16 @@ const Index = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Clock className="w-5 h-5 text-green-600" />
-                  <span className="text-gray-700">Sun-Fri: 10AM-6PM</span>
+                  <span className="text-gray-700">Sun-Fri: 6AM-6PM</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-blue-600" />
-                  <span className="text-gray-700">+977-9840175421</span>
+                  <span className="text-gray-700">+977-9840175421/+977-14516024</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-purple-600" />
                   <span className="text-gray-700">
-                    info@irohaconsultancy.com
+                    info@irohaeduconsultancy.com
                   </span>
                 </div>
               </div>
@@ -1219,7 +1244,7 @@ const Index = () => {
             >
               <div className="relative">
                 <img
-                  src="\photos\CTAphoto.jpg"
+                  src="photos/visa.jpg"
                   alt="Modern office building"
                   className="rounded-xl shadow-lg w-full"
                   loading="lazy"
